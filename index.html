@@ -2,17 +2,48 @@
 <html>
     <head>
         <title>Stop it</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" type="text/css" charset="utf-8">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" type="text/css" charset="utf-8">
     </head>
     <body style="font-family: serif; font-size: 2em; padding:16px; padding-top:18px">
 			<br>
 			<div style="transform: rotate(2deg); margin-bottom: 8px">
-				<b>Max Petschack</b>
+				<b><span id="1">Max</span> <span id="2">Petschack</span></b>
 			</div>
-	    			Stop googling me, <b>nerd</b>
+			<span id="3">Stop</span> <span id="4">googling</span> <span id="5">me</span>, <b id="6">nerd</b>
 			<hr style="transform: rotate(1.5deg);">
 			<div style="transform: rotate(1.5deg); margin-top:4px">
-				<a href="https://github.com/Midataur">www.github.com/Midataur</a>
+				<a href="https://github.com/Midataur"><span id="7">www</span>.<span id="8">github</span>.<span id="9">com</span>/<span id="10">Midataur</span></a>
 			</div>
+			<!--Font Randomiser-->
+			<script>
+					var fontType = [ "Arial", 
+										"Verdana", 
+										"Helvetica",
+										"Calibri",
+										"Noto",
+										"Lucida Sans",
+										"Gill Sans",
+										"Century Gothic",
+										"Candara",
+										"Futara",
+										"Franklin Gothic Medium",
+										"Trebuchet MS",
+										"Geneva",
+										"Segoe UI",
+										"Optima",
+										"Avanta Garde",
+										"Lucida Handwriting",
+										"Impact",
+										"Lucida Console",
+										"Gabriola",
+										"Comic Sans MS",
+										"BIZ UDMincho Medium"];
+					for (i=1;i<11;i++)
+					{
+						var num;
+						num = Math.floor(Math.random()*fontType.length);
+						document.getElementById(i).style.fontFamily = fontType[num];
+					}
+				</script>
     </body>
 </html>
