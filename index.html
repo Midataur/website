@@ -3,6 +3,26 @@
     <head>
         <title>Stop it</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" type="text/css" charset="utf-8">
+		<script>
+			function shuffle(array) {
+				var currentIndex = array.length, temporaryValue, randomIndex;
+			  
+				// While there remain elements to shuffle...
+				while (0 !== currentIndex) {
+			  
+				  // Pick a remaining element...
+				  randomIndex = Math.floor(Math.random() * currentIndex);
+				  currentIndex -= 1;
+			  
+				  // And swap it with the current element.
+				  temporaryValue = array[currentIndex];
+				  array[currentIndex] = array[randomIndex];
+				  array[randomIndex] = temporaryValue;
+				}
+			  
+				return array;
+			  }
+		</script>
     </head>
     <body style="font-family: serif; font-size: 2em; padding:16px; padding-top:18px">
 			<br>
@@ -16,7 +36,7 @@
 			</div>
 			<!--Font Randomiser-->
 			<script>
-					var fontType = [ "Arial", 
+					var fontType = shuffle([ "Arial", 
 										"Verdana", 
 										"Helvetica",
 										"Calibri",
@@ -37,12 +57,11 @@
 										"Lucida Console",
 										"Gabriola",
 										"Comic Sans MS",
-										"BIZ UDMincho Medium"];
+										"BIZ UDMincho Medium"]);
 					for (i=1;i<11;i++)
 					{
-						var num;
-						num = Math.floor(Math.random()*fontType.length);
-						document.getElementById(i).style.fontFamily = fontType[num];
+						document.getElementById(i).style.fontFamily = fontType[fontType.length-1];
+						fontType.pop();
 					}
 				</script>
     </body>
