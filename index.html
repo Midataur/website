@@ -61,6 +61,8 @@
 					for (i=1;i<11;i++)
 					{
 						document.getElementById(i).style.fontFamily = fontType[fontType.length-1];
+						var rotation = Math.floor(Math.random() * 180);
+						document.getElementById(i).style.transform = "rotate("+rotation+"deg)";
 						fontType.pop();
 					}
 				</script>
