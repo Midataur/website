@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style type="text/css" id="dark-mode-custom-style" lang="en"></style><style type="text/css" id="dark-mode-native-style" lang="en"></style><head>
+	<!--	
+	___________________________________________________________
+   
+	                   killcounter-code.html
+	      XGB Web and Software Design ~ www.xgbdesign.com
+
+	  N.B.: This code was substantially modified in July 2011.
+	___________________________________________________________
+	-->
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="revised" content="2012.10.10">
+	<meta name="ADAPTT" content="Animals Deserve Absolute Protection Today and Tomorrow">
+	<meta name="keywords" content="ADAPTT, animal rights, veganism, Gary Yourofsky, fight speciesism, fight animal abuse">
+	<meta name="description" content="This page incorporates the basic XHTML, CSS, and JavaScript source code for the 
+		ADAPTT Kill Counter. This code is a modification of code produced by Action for Animals and SFVegan.">
+
+	<title>The Animal Kill Counter: Basic Version &lt;&lt; ADAPTT :: Animals Deserve Absolute Protection Today and Tomorrow</title>
+	<link rel="shortcut icon" href="https://www.adaptt.org/about/grfx/main/a.ico">
+
+	<!-- Add JavaScript variables and functions for the ADAPTT Kill Counter: -->
+
+	<style>
+		.name {
+			color: white;
+		}
+	</style>
+
+	<script>
+		document.addEventListener("keydown", (event) => {
+			if (event.isComposing || event.keyCode === 220) {
+				names = document.getElementsByClassName("name");
+				for (i = 0; i < names.length; i++) {
+					names[i].style.color = "#000000";
+				}
+			}
+		});
+	</script>
+
+	<script async="" src="killcount_files/analytics.js"></script><script>
+
+		// Global variables: ___________________________________________________________________
+
+		var counts = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+		var rate = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+		
+		// Functions: __________________________________________________________________________
+		
+		function StartKillCounter() {
+			var millions = [ 90000, 45895, 2262, 1244, 857, 691, 533, 515, 345, 292, 65, 63, 23, 16, 4, 4, 3, 2 ];
+			var perSecond = 8;
+			for (var i = 0; i < counts.length; ++i) 
+				rate[i] = millions[i] * 1000000 / 365 / 24 / 60 / 60 / perSecond;
+			setInterval(NewCounts, 1000 / perSecond);
+		}
+		
+		function NewCounts() {
+			var num, thous, str;
+			for (var i = 0; i < counts.length; ++i) {
+				counts[i] += rate[i];
+				num = Math.round(counts[i]);
+				str = "";
+				while (num > 1000) {
+					thous = num % 1000;
+					if (thous < 10)
+						thous = "00" + thous;
+					else if (thous < 100)
+						thous = "0" + thous;
+					str = "," + thous + str;
+					num = Math.floor(num / 1000);
+				}
+				str = num + str;
+				document.getElementById("count" + i).innerHTML = str;
+			}
+		}
+	</script>
+
+	<!-- Add local CSS for the ADAPTT Kill Counter. 
+		  Please Note: This code block MUST contain AT MINIMUM the following code: -->
+	<style type="text/css">
+		span#count0, span#count1, span#count2, span#count3, span#count4, span#count5, 
+		span#count6, span#count7, span#count8, span#count9, span#count10, span#count11, 
+		span#count12, span#count13, span#count14, span#count15, span#count16, span#count17 { 
+			display: inline; 
+		}
+	</style>
+
+	<!-- Begin Google Analytics code: -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-44763726-1', 'adaptt.org');
+		ga('send', 'pageview');
+	</script>
+</head>
+
+<body>
+	<!-- Begin the ADAPTT Kill Counter: -->
+	<h4 class="name">Animals Slaughtered:</h4>
+	<p>
+		<span id="count0">48,159</span>&nbsp;<span class="name">marine animals</span><br>
+		<span id="count1">24,559</span>&nbsp;<span class="name">chickens</span><br>
+		<span id="count2">1,210</span>&nbsp;<span class="name">ducks</span><br>
+		<span id="count3">666</span>&nbsp;<span class="name">pigs</span><br>
+		<span id="count4">459</span>&nbsp;<span class="name">rabbits</span><br>
+		<span id="count5">370</span>&nbsp;<span class="name">turkeys</span><br>
+		<span id="count6">285</span>&nbsp;<span class="name">geese</span><br>
+		<span id="count7">276</span>&nbsp;<span class="name">sheep</span><br>
+		<span id="count8">185</span>&nbsp;<span class="name">goats</span><br>
+		<span id="count9">156</span>&nbsp;<span class="name">cows and calves</span><br>
+		<span id="count10">35</span>&nbsp;<span class="name">rodents</span><br>
+		<span id="count11">34</span>&nbsp;<span class="name">pigeons and other birds</span><br>
+		<span id="count12">12</span>&nbsp;<span class="name">buffaloes</span><br>
+		<span id="count13">9</span>&nbsp;<span class="name">dogs</span><br>
+		<span id="count14">2</span>&nbsp;<span class="name">cats</span><br>
+		<span id="count15">2</span>&nbsp;<span class="name">horses</span><br>
+		<span id="count16">2</span>&nbsp;<span class="name">donkeys and mules</span><br>
+		<span id="count17">1</span>&nbsp;<span class="name">camels and other camelids</span>
+	</p>
+
+	<script>
+		StartKillCounter();
+	</script>
+
+
+
+
+
+
+
+</body></html>
